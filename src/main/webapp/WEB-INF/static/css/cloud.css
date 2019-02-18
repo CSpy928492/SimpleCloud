@@ -1,0 +1,11 @@
+.cloud-nav-item {
+    padding-right: 50px;
+    /*text-decoration: none;*/
+    font-family: 黑体;
+    font-size: 20px;
+}
+a:link, a:visited {
+    color: black;
+    /*text-decoration: none;*/
+}
+

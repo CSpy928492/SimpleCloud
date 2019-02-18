@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>简易云</title>
+    <script th:src="@{static/js/jquery-3.3.1.js}"></script>
+    <script th:src="@{static/js/bootstrap.js}"></script>
+    <script th:src="@{static/js/bootstrap.bundle.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/bootstrap-grid.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/bootstrap-reboot.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/cloud.css}">
+    <style>
+        html, body {
+            height: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<!--<div class="navbar">-->
+    <!--<img th:src="@{static/img/logo.png}" th:width="240px" th:height="40px" th:alt="logo.png">-->
+
+    <!--<ul class="nav right-container">-->
+        <!--<li><a class="cloud-nav-item" th:href="'#'">关于</a></li>-->
+        <!--<li><a class="cloud-nav-item" th:href="'#'">刷新</a></li>-->
+        <!--<li><a class="cloud-nav-item" th:href="'#'">退出登录[CSpy]</a></li>-->
+    <!--</ul>-->
+
+<!--</div>-->
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <a class="cloud-nav-item" th:href="'#'">关于</a>
+    <a class="cloud-nav-item" th:href="'#'">刷新</a>
+    <a class="cloud-nav-item" th:href="'#'">退出登录[CSpy]</a>
+</nav>
+
+<div class="container-fluid" style="position: absolute;bottom: 0px;top:60px;">
+    <div class="row" style="height: 100%;">
+        <div class="col-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <!--<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"-->
+                <!--aria-controls="v-pills-home" aria-selected="true">Home</a>-->
+                <!--<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"-->
+                <!--aria-controls="v-pills-profile" aria-selected="false">Profile</a>-->
+                <!--<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"-->
+                <!--aria-controls="v-pills-messages" aria-selected="false">Messages</a>-->
+                <!--<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"-->
+                <!--aria-controls="v-pills-settings" aria-selected="false">Settings</a>-->
+
+
+                <a class="nav-link active" id="all-file-tab" data-toggle="pill" href="#all-file" role="tab"
+                   aria-controls="all-file" aria-selected="true">全部文件</a>
+                <a class="nav-link" id="image-tab" data-toggle="pill" href="#image" role="tab"
+                   aria-controls="image" aria-selected="false">图片</a>
+                <a class="nav-link" id="video-tab" data-toggle="pill" href="#video" role="tab"
+                   aria-controls="video" aria-selected="false">视频</a>
+                <a class="nav-link" id="music-tab" data-toggle="pill" href="#music" role="tab"
+                   aria-controls="music" aria-selected="false">音乐</a>
+                <a class="nav-link" id="document-tab" data-toggle="pill" href="#document" role="tab"
+                   aria-controls="document" aria-selected="false">文档</a>
+                <a class="nav-link" id="archive-tab" data-toggle="pill" href="#archive" role="tab"
+                   aria-controls="archive" aria-selected="false">压缩包</a>
+                <a class="nav-link" id="others-tab" data-toggle="pill" href="#others" role="tab"
+                   aria-controls="others" aria-selected="false">其他</a>
+                <a class="nav-link" id="trash-tab" data-toggle="pill" href="#trash" role="tab"
+                   aria-controls="trash" aria-selected="false">回收站</a>
+            </div>
+
+
+            <div style="position:absolute;bottom: 20px;left: 15px;right: 15px;">
+                <div class="progress" style="height: 2px;">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                         aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p style="display: inline">25MB/100MB</p>
+                <button type="button" class="btn btn-link">扩容</button>
+            </div>
+
+
+        </div>
+        <div class="col-10" style="background-color: gray;">
+            <div class="tab-content" id="v-pills-tabContent">
+                <!--<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"-->
+                <!--aria-labelledby="v-pills-home-tab">...-->
+                <!--</div>-->
+                <!--<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">-->
+                <!--...-->
+                <!--</div>-->
+                <!--<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">-->
+                <!--...-->
+                <!--</div>-->
+                <!--<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">-->
+                <!--...-->
+                <!--</div>-->
+
+                <div class="tab-pane fade show active" id="all-file" style="width: 100%;" role="tabpanel" aria-labelledby="all-file-tab">
+                    <div id="function-top">
+                        <button type="button" class="btn btn-outline-primary">上传文件</button>
+                        <button type="button" class="btn btn-outline-primary">上传文件夹</button>
+                        <button type="button" class="btn btn-outline-primary">新建文件夹</button>
+
+                        <div class=justify-content-end">
+                            <form>
+                                <input type="text" class="form-control" id="inputPassword2" placeholder="搜索文件">
+                                <button type="submit" class="btn btn-outline-primary mb-2">搜索</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="image" role="tabpanel" aria-labelledby="image-tab">
+                    图片
+                </div>
+                <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+                    视频
+                </div>
+                <div class="tab-pane fade" id="music" role="tabpanel" aria-labelledby="music-tab">
+                    音乐
+                </div>
+                <div class="tab-pane fade" id="document" role="tabpanel" aria-labelledby="document-tab">
+                    文档
+                </div>
+                <div class="tab-pane fade" id="archive" role="tabpanel" aria-labelledby="archive-tab">
+                    压缩包
+                </div>
+                <div class="tab-pane fade" id="others" role="tabpanel" aria-labelledby="others-tab">
+                    其他文件
+                </div>
+                <div class="tab-pane fade" id="trash" role="tabpanel" aria-labelledby="trash-tab">
+                    垃圾箱
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
