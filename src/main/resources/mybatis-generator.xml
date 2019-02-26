@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="DB2" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/simple_cloud?serverTimezone=UTC"
+                        userId="root"
+                        password="cspy2117">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="cspy.online.bean"
+                            targetProject="src/main/java">
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="cspy.online.xml"
+                         targetProject="src/main/java">
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cspy.online.mapper"
+                             targetProject="src/main/java">
+        </javaClientGenerator>
+
+        <table tableName="user_table"/>
+        <table tableName="feedback_table"/>
+        <table tableName="file_table"/>
+        <table tableName="login_table"/>
+        <table tableName="message_table"/>
+        <table tableName="share_table"/>
+        <table tableName="size_modified_table"/>
+        <table tableName="download_offline_table"/>
+
+
+    </context>
+</generatorConfiguration>

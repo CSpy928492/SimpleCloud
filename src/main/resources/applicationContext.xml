@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <context:component-scan base-package="cspy.online"/>
+    <context:property-placeholder location="classpath:simple_cloud.properties"/>
+
+    <bean id="projectFile" class="java.io.File" c:pathname="${cloud.dir}">
+    </bean>
+
+    <bean id="projectInitializer" class="cspy.online.config.SimpleCloudInitializer" init-method="initDir">
+        <property name="projectDir" ref="projectFile"/>
+        <property name="basicDir" value="#{'${cloud.dir.basic}'.split(',')}"/>
+    </bean>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="jdbc:mysql://localhost:3306/simple_cloud?serverTimezone=UTC"/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="password" value="cspy2117"/>
+    </bean>
+
+
+
+
+
+</beans>
